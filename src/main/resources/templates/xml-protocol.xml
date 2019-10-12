@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<condition>
+    <!--查询字段-->
+    <select>
+        <column th:each="column:${condition.select.columns}"
+                zdy:attr="${#strings.concat('func=',column.func)};
+                        ${#strings.concat('name=',column.name)};
+                        ${#strings.concat('nickname=',column.nickname)};
+                        ${#strings.concat('comments=',column.comments)}"/>
+    </select>
+    <!--查询条件-->
+    <where th:if="${condition.where}">
+        <cd th:each="cd:${condition.where.cds}"
+            zdy:attr="${#strings.concat('func=',cd.func)};
+                    ${#strings.concat('column=',cd.column)};
+                    ${#strings.concat('compare=',cd.compare)};
+                    ${#strings.concat('value=',cd.value)};
+                    ${#strings.concat('relation=',cd.relation)}"/>
+    </where>
+</condition>

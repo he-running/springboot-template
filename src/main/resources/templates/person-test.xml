@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persons>
+    <person>
+        <!--tag内容，使用strings.concat()拼接示例，读取map内容-->
+        <fname th:text="${#strings.concat('firstname=',pinfo['lastname'])}"></fname>
+        <!--tag属性,需设置多个属性时使用','隔开；或直接使用th:value的方式，
+        但是当属性值为空时将不显示，若要显示则需要自定义属性方言-->
+        <lname th:attr="lastname=${pinfo['firstname']}"></lname>
+        <!--thymeleaf的其他具体语法参考官网-->
+        <country th:text="${pinfo['country']}"></country>
+    </person>
+</persons>
+
